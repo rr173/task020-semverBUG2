@@ -250,7 +250,7 @@ func Min(versions []Version) (Version, bool) {
 // versions with equal precedence retain their input order.
 func Sort(versions []Version) {
 	for i := 1; i < len(versions); i++ {
-		for j := i; j > 0 && versions[j].Compare(versions[j-1]) <= 0; j-- {
+		for j := i; j > 0 && versions[j].Compare(versions[j-1]) < 0; j-- {
 			versions[j], versions[j-1] = versions[j-1], versions[j]
 		}
 	}
